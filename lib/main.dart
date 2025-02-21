@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:real_estate_app/gen/fonts.gen.dart';
 import 'package:real_estate_app/src/app/app_router/app_router.dart';
@@ -23,6 +24,10 @@ class RealEstateApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Real Estate App',
         routerConfig: routerConfig,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: const [
+          Locale('en'), // English
+        ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,

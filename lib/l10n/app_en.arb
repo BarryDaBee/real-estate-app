@@ -1,0 +1,10 @@
+{
+  "hi" : "hi {name}",
+  "@hi": {
+    "placeholder": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}
