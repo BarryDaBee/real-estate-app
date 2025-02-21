@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:real_estate_app/gen/fonts.gen.dart';
 import 'package:real_estate_app/src/app/app_router/app_router.dart';
+import 'package:real_estate_app/src/shared/widgets/unfocus.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,17 +22,19 @@ class RealEstateApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      child: MaterialApp.router(
-        title: 'Real Estate App',
-        routerConfig: routerConfig,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: const [
-          Locale('en'), // English
-        ],
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          fontFamily: FontFamily.euclidCircularA,
+      child: Unfocus(
+        child: MaterialApp.router(
+          title: 'Real Estate App',
+          routerConfig: routerConfig,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: const [
+            Locale('en'), // English
+          ],
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+            fontFamily: FontFamily.euclidCircularA,
+          ),
         ),
       ),
     );
