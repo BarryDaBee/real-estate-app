@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_user_avatar.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offers.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/location_chip.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/property_card.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/rent_offers.dart';
 import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
@@ -36,35 +37,13 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: kToolbarHeight + 8),
-                Row(
+                const Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(8.radius),
-                      decoration: BoxDecoration(
-                        color: AppColors.primary.white,
-                        borderRadius: BorderRadius.circular(8.radius),
-                      ),
-                      child: Row(
-                        children: [
-                          AppAssets.images.svg.locationPin.svg(
-                            width: 8.radius,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primary.brown,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          SizedBox(width: 6.width),
-                          Text(
-                            'Saint Petersburg',
-                            style: context.textTheme.bodySmall?.copyWith(
-                              color: AppColors.primary.brown,
-                            ),
-                          ),
-                        ],
-                      ),
+                    LocationChip(
+                      location: 'Saint Petersburg',
                     ),
-                    const Spacer(),
-                    const AppAnimatedUserAvatar(),
+                    Spacer(),
+                    AppAnimatedUserAvatar(),
                   ],
                 ),
                 SizedBox(height: 36.height),
