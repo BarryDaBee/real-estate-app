@@ -12,7 +12,7 @@ class AppAnimatedUserAvatar extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useAnimationController(
-      duration: AnimationConstants.duration,
+      duration: AnimationConstants.normalDuration,
     )..forward();
 
     // Listen to changes on the controller object and rebuild UI

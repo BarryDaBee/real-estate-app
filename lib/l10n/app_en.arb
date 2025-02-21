@@ -7,7 +7,8 @@
       }
     }
   },
-  "letsSelectYourPerfectPlace": "let’s select your\nperfect place",
+  "letsSelectYour": "let’s select your",
+  "perfectPlace": "perfect place",
   "buy": "BUY",
   "rent": "RENT",
   "offers": "offers"

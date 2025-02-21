@@ -13,7 +13,7 @@ class AppAnimatedGreeting extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller =
-        useAnimationController(duration: AnimationConstants.duration);
+        useAnimationController(duration: AnimationConstants.normalDuration);
 
     final curvedAnimationValue = useAnimation(
       CurvedAnimation(parent: controller, curve: Curves.decelerate),

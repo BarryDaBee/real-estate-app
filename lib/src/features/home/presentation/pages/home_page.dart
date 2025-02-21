@@ -1,16 +1,14 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_caption.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_greeting.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_user_avatar.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offers.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/location_chip.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/property_card.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/rent_offers.dart';
-import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
-import 'package:real_estate_app/src/shared/extensions/localizations_extension.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
-import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -18,7 +16,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -50,13 +47,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 36.height),
                 const AppAnimatedGreeting(),
                 SizedBox(height: 4.height),
-                Text(
-                  l10n.letsSelectYourPerfectPlace,
-                  style: context.textTheme.headlineLarge?.copyWith(
-                    color: AppColors.primary.black,
-                  ),
-                ),
-                SizedBox(height: 16.height),
+                const AppAnimatedCaption(),
                 const Row(
                   children: [
                     BuyOffers(),

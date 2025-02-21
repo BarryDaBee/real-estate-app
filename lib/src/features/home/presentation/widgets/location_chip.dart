@@ -21,7 +21,7 @@ class _LocationChipState extends State<LocationChip>
     with TickerProviderStateMixin {
   late final _controller = AnimationController(
     vsync: this,
-    duration: AnimationConstants.duration,
+    duration: AnimationConstants.normalDuration,
   );
 
   late final _widthFactor = Tween<double>(
