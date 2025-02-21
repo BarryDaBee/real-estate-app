@@ -8,6 +8,12 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           path: '/',
           page: BaseRoute.page,
+          children: [
+            AutoRoute(
+              path: 'home',
+              page: HomeRoute.page,
+            ),
+          ],
         ),
       ];
 }
