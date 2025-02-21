@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_greeting.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_user_avatar.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offers.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/location_chip.dart';
@@ -47,16 +48,11 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 36.height),
-                Text(
-                  l10n.hi('Marina'),
-                  style: context.textTheme.bodyLarge?.copyWith(
-                    color: AppColors.primary.brown,
-                  ),
-                ),
+                const AppAnimatedGreeting(),
                 SizedBox(height: 4.height),
                 Text(
                   l10n.letsSelectYourPerfectPlace,
-                  style: context.textTheme.headlineMedium?.copyWith(
+                  style: context.textTheme.headlineLarge?.copyWith(
                     color: AppColors.primary.black,
                   ),
                 ),
