@@ -52,6 +52,13 @@ class PropertyCard extends StatelessWidget {
                   height: 36.radius,
                   decoration: ShapeDecoration(
                     shape: const CircleBorder(),
+                    shadows: [
+                      BoxShadow(
+                        color: AppColors.primary.black.withValues(alpha: 0.15),
+                        offset: Offset(0, 4),
+                        blurRadius: 12,
+                      ),
+                    ],
                     color: AppColors.primary.white,
                   ),
                   child: Icon(

@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:real_estate_app/gen/fonts.gen.dart';
 import 'package:real_estate_app/src/app/app_router/app_router.dart';
+import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 import 'package:real_estate_app/src/shared/widgets/unfocus.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class RealEstateApp extends StatelessWidget {
             Locale('en'), // English
           ],
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary.orange),
             useMaterial3: true,
             fontFamily: FontFamily.euclidCircularA,
           ),

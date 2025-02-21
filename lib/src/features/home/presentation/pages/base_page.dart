@@ -11,7 +11,7 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: const [
-        HomeRoute(),
+        SearchRoute(),
         HomeRoute(),
         HomeRoute(),
         HomeRoute(),

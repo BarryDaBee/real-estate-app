@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                 ),
                 SizedBox(height: 36.height),
                 Text(
-                  l10n.hi('Barry'),
+                  l10n.hi('Marina'),
                   style: context.textTheme.bodyLarge?.copyWith(
                     color: AppColors.primary.brown,
                   ),
