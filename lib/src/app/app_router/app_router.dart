@@ -12,10 +12,15 @@ class AppRouter extends RootStackRouter {
             AutoRoute(
               path: 'home',
               page: HomeRoute.page,
+              initial: true,
             ),
             AutoRoute(
               path: 'search',
               page: SearchRoute.page,
+            ),
+            AutoRoute(
+              path: 'empty',
+              page: EmptyRoute.page,
             ),
           ],
         ),

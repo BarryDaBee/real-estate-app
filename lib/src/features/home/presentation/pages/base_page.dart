@@ -10,12 +10,12 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [
-        SearchRoute(),
-        HomeRoute(),
-        HomeRoute(),
-        HomeRoute(),
-        HomeRoute(),
+      routes: [
+        const SearchRoute(),
+        EmptyRoute(message: 'Messaging'),
+        const HomeRoute(),
+        EmptyRoute(message: 'Favorites'),
+        EmptyRoute(message: 'Profile'),
       ],
       extendBody: true,
       bottomNavigationBuilder: (_, tabsRouter) {
