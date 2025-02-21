@@ -110,12 +110,14 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: ListView(
-                  padding: EdgeInsets.zero,
+                  padding: EdgeInsets.only(bottom: 100.height),
                   controller: scrollController,
                   children: [
                     PropertyCard(
+                      textAlignment: Alignment.center,
                       backgroundImage:
                           AppAssets.images.png.dummyProperty0.provider(),
+                      address: 'Gladkova St., 25',
                     ),
                     SizedBox(height: 8.radius),
                     SizedBox(
@@ -124,6 +126,7 @@ class HomePage extends StatelessWidget {
                         children: [
                           Expanded(
                             child: PropertyCard(
+                              address: 'Gubina St., 11',
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty2
                                   .provider(),
@@ -135,6 +138,7 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: PropertyCard(
+                                    address: 'Trefoleva St., 11',
                                     backgroundImage: AppAssets
                                         .images.png.dummyProperty1
                                         .provider(),
@@ -143,6 +147,7 @@ class HomePage extends StatelessWidget {
                                 SizedBox(height: 8.radius),
                                 Expanded(
                                   child: PropertyCard(
+                                    address: 'Sedova St., 22',
                                     backgroundImage: AppAssets
                                         .images.png.dummyProperty2
                                         .provider(),
@@ -164,6 +169,7 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: PropertyCard(
+                                    address: 'Moniepoint St., 1',
                                     backgroundImage: AppAssets
                                         .images.png.dummyProperty0
                                         .provider(),
@@ -172,6 +178,7 @@ class HomePage extends StatelessWidget {
                                 SizedBox(height: 8.radius),
                                 Expanded(
                                   child: PropertyCard(
+                                    address: 'HireMe St., 2',
                                     backgroundImage: AppAssets
                                         .images.png.dummyProperty2
                                         .provider(),
@@ -183,6 +190,7 @@ class HomePage extends StatelessWidget {
                           SizedBox(width: 8.radius),
                           Expanded(
                             child: PropertyCard(
+                              address: 'Remote St., 3',
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty1
                                   .provider(),
