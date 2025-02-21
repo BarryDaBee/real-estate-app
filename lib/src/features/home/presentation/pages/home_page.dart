@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/app_animated_user_avatar.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offers.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/property_card.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/rent_offers.dart';
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: kToolbarHeight),
+                const SizedBox(height: kToolbarHeight + 8),
                 Row(
                   children: [
                     Container(
@@ -63,11 +64,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    CircleAvatar(
-                      radius: 16.radius,
-                      backgroundImage:
-                          AppAssets.images.png.dummyAvatar.provider(),
-                    ),
+                    const AppAnimatedUserAvatar(),
                   ],
                 ),
                 SizedBox(height: 36.height),
