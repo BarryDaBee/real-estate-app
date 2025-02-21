@@ -1,5 +1,13 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:real_estate_app/gen/assets.gen.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offers.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/property_card.dart';
+import 'package:real_estate_app/src/features/home/presentation/widgets/rent_offers.dart';
+import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
+import 'package:real_estate_app/src/shared/extensions/localizations_extension.dart';
+import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
+import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -7,6 +15,189 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final l10n = context.l10n;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.white.withValues(alpha: 0.1),
+            const Color(0xFFd87705).withValues(alpha: .7),
+          ],
+        ),
+      ),
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.width),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: kToolbarHeight),
+                Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(8.radius),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary.white,
+                        borderRadius: BorderRadius.circular(8.radius),
+                      ),
+                      child: Row(
+                        children: [
+                          AppAssets.images.svg.locationPin.svg(
+                            width: 8.radius,
+                            colorFilter: ColorFilter.mode(
+                              AppColors.primary.brown,
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                          SizedBox(width: 6.width),
+                          Text(
+                            'Saint Petersburg',
+                            style: context.textTheme.bodySmall?.copyWith(
+                              color: AppColors.primary.brown,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    CircleAvatar(
+                      radius: 16.radius,
+                      backgroundImage:
+                          AppAssets.images.png.dummyAvatar.provider(),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 36.height),
+                Text(
+                  l10n.hi('Barry'),
+                  style: context.textTheme.bodyLarge?.copyWith(
+                    color: AppColors.primary.brown,
+                  ),
+                ),
+                SizedBox(height: 4.height),
+                Text(
+                  l10n.letsSelectYourPerfectPlace,
+                  style: context.textTheme.headlineMedium?.copyWith(
+                    color: AppColors.primary.black,
+                  ),
+                ),
+                SizedBox(height: 16.height),
+                const Row(
+                  children: [
+                    BuyOffers(),
+                    Spacer(),
+                    RentOffers(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          DraggableScrollableSheet(
+            minChildSize: 0.5,
+            snap: true,
+            builder: (_, scrollController) {
+              return Container(
+                padding: EdgeInsets.only(
+                  left: 8.radius,
+                  top: 8.radius,
+                  right: 8.radius,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  controller: scrollController,
+                  children: [
+                    PropertyCard(
+                      backgroundImage:
+                          AppAssets.images.png.dummyProperty0.provider(),
+                    ),
+                    SizedBox(height: 8.radius),
+                    SizedBox(
+                      height: 360.height,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: PropertyCard(
+                              backgroundImage: AppAssets
+                                  .images.png.dummyProperty2
+                                  .provider(),
+                            ),
+                          ),
+                          SizedBox(width: 8.radius),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: PropertyCard(
+                                    backgroundImage: AppAssets
+                                        .images.png.dummyProperty1
+                                        .provider(),
+                                  ),
+                                ),
+                                SizedBox(height: 8.radius),
+                                Expanded(
+                                  child: PropertyCard(
+                                    backgroundImage: AppAssets
+                                        .images.png.dummyProperty2
+                                        .provider(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 8.radius),
+                    SizedBox(
+                      height: 360.height,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: PropertyCard(
+                                    backgroundImage: AppAssets
+                                        .images.png.dummyProperty0
+                                        .provider(),
+                                  ),
+                                ),
+                                SizedBox(height: 8.radius),
+                                Expanded(
+                                  child: PropertyCard(
+                                    backgroundImage: AppAssets
+                                        .images.png.dummyProperty2
+                                        .provider(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 8.radius),
+                          Expanded(
+                            child: PropertyCard(
+                              backgroundImage: AppAssets
+                                  .images.png.dummyProperty1
+                                  .provider(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

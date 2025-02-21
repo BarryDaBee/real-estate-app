@@ -1,10 +1,14 @@
 {
-  "hi" : "hi {name}",
+  "hi" : "Hi, {name}",
   "@hi": {
     "placeholder": {
       "name": {
         "type": "String"
       }
     }
-  }
+  },
+  "letsSelectYourPerfectPlace": "let’s select your\nperfect place",
+  "buy": "BUY",
+  "rent": "RENT",
+  "offers": "offers"
 }

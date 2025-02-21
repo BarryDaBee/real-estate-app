@@ -17,6 +17,7 @@ class BasePage extends StatelessWidget {
         HomeRoute(),
         HomeRoute(),
       ],
+      extendBody: true,
       bottomNavigationBuilder: (_, tabsRouter) {
         return AppBottomNavigationBar(
           activeIndex: tabsRouter.activeIndex,

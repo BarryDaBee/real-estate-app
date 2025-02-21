@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';
@@ -19,10 +20,10 @@ class AppRippleButton extends HookWidget {
     final controller = useAnimationController(
       duration: const Duration(milliseconds: 600),
     )..addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        tapPosition.value = null; // Remove ripple after fade-out
-      }
-    });
+        if (status == AnimationStatus.completed) {
+          tapPosition.value = null; // Remove ripple after fade-out
+        }
+      });
 
     final animation = useAnimation(
       TweenSequence([
