@@ -55,7 +55,7 @@ class PropertyCard extends StatelessWidget {
                     shadows: [
                       BoxShadow(
                         color: AppColors.primary.black.withValues(alpha: 0.15),
-                        offset: Offset(0, 4),
+                        offset: const Offset(0, 4),
                         blurRadius: 12,
                       ),
                     ],

@@ -28,20 +28,20 @@ class AppRippleButton extends HookWidget {
     final animation = useAnimation(
       TweenSequence([
         TweenSequenceItem(tween: Tween<double>(begin: 0, end: 1), weight: 0.5),
-        TweenSequenceItem(tween: Tween<double>(begin: 1, end: 0), weight: 0.6),
+        TweenSequenceItem(tween: Tween<double>(begin: 1, end: 0), weight: 0.5),
       ]).animate(
         CurvedAnimation(parent: controller, curve: Curves.easeOutCubic),
       ),
     );
 
-    void _startRipple(TapUpDetails details) {
+    void startRipple(TapUpDetails details) {
       tapPosition.value = details.localPosition;
       controller.forward(from: 0);
       onTap();
     }
 
     return GestureDetector(
-      onTapUp: _startRipple,
+      onTapUp: startRipple,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -69,7 +69,7 @@ class _RipplePainter extends CustomPainter {
     if (tapPosition == null) return;
 
     final maxRadius = size.longestSide * 0.5;
-    final innerRadius = max(12.0, maxRadius * (1 - progress));
+    final double innerRadius = max(12, maxRadius * (1 - progress));
     final outerRadius = progress * (maxRadius + 5);
 
     final innerPaint = Paint()

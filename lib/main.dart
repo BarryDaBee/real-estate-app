@@ -32,7 +32,9 @@ class RealEstateApp extends StatelessWidget {
             Locale('en'), // English
           ],
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary.orange),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: AppColors.primary.orange,
+            ),
             useMaterial3: true,
             fontFamily: FontFamily.euclidCircularA,
           ),
