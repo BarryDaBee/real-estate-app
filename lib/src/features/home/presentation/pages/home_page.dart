@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const PropertiesSheet(
-            delay: Duration(milliseconds: 4800),
+            delay: Duration(milliseconds: 4500),
           ),
         ],
       ),
