@@ -28,10 +28,13 @@ class SearchPage extends HookWidget {
       duration: AnimationConstants.normalDuration,
     );
 
-    useEffect(() {
-      controller.forward();
-      return controller.dispose;
-    }, []);
+    useEffect(
+      () {
+        controller.forward();
+        return controller.dispose;
+      },
+      [],
+    );
 
     final scale = useAnimation(
       CurvedAnimation(parent: controller, curve: Curves.ease),

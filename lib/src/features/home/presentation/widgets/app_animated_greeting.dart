@@ -27,7 +27,7 @@ class AppAnimatedGreeting extends HookWidget {
           delay,
           controller.forward,
         );
-        return null;
+        return controller.dispose;
       },
       [],
     );
