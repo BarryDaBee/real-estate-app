@@ -1,16 +1,54 @@
 # real_estate_app
 
-A new Flutter project.
+Moniepoint UI interview task
 
-## Getting Started
+https://github.com/user-attachments/assets/1a78685d-a348-4f5e-bc10-9556c806a1ce
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/user-attachments/assets/bae76568-54ba-4554-803d-18f23292fca2
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is my submission to Moniepoint's UI and animation challenge which is an implementation
+of this design
+
+
+- [Dribble design](https://dribbble.com/shots/23780608-Real-Estate-App)
+
+## Folder Structure :open_file_folder:
+This application uses a feature driven folder structure to seperate related functionality into individual features
+
+```
+(lib)
+│
+├── gen
+│
+├── l10n
+│
+├── src
+│    ├── features
+│    │     ├── feature0
+│    │     │     ├── data
+│    │     │     │     ├── data_sources
+│    │     │     │     ├── models
+│    │     │     │     └── repositories (implementation)
+│    │     │     ├── domain
+│    │     │     │     ├── entities
+│    │     │     │     ├── repositories (abstract)
+│    │     │     │     └── use_cases
+│    │     │     └── presentation
+│    │     │           ├── blocs
+│    │     │           ├── pages
+│    │     │           └── widgets
+│
+└── main.dart
+```
+
+## Packages Used:
+
+- **`auto_route`** – Ensures smooth and well-structured navigation, making screen transitions effortless.  
+- **`cupertino_icons`** – Provides iOS-style icons to maintain a polished look on Apple devices.  
+- **`flutter_hooks`** – Simplifies state management, with custom hooks built to streamline UI logic.  
+- **`flutter_localizations`** – Enables support for multiple languages and region-specific formatting.  
+- **`flutter_screenutil`** – Ensures UI responsiveness by adapting layouts to different screen sizes.  
+- **`flutter_svg`** – Allows the use of SVG images, keeping graphics sharp and scalable.  
+- **`intl`** – Handles formatting for dates, numbers, and localization to enhance user experience.
