@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:real_estate_app/src/features/search/presentation/pages/search_page.dart';
+import 'package:real_estate_app/src/shared/enums/location_pin_types.dart';
 import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';

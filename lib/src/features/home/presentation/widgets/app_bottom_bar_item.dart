@@ -24,6 +24,7 @@ class AppBottomBarItem extends StatelessWidget {
     return Expanded(
       child: AppRippleButton(
         onTap: onTap,
+        shouldClip: true,
         child: Tooltip(
           message: title,
           child: AnimatedContainer(

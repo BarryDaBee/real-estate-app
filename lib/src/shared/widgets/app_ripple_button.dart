@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 
 class AppRippleButton extends HookWidget {
@@ -9,12 +10,14 @@ class AppRippleButton extends HookWidget {
     required this.child,
     required this.onTap,
     this.rippleColor,
+    this.shouldClip = false,
     super.key,
   });
 
   final Widget child;
   final VoidCallback onTap;
   final Color? rippleColor;
+  final bool shouldClip;
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +54,30 @@ class AppRippleButton extends HookWidget {
           child,
           if (tapPosition.value != null)
             Positioned.fill(
-              child: CustomPaint(
-                painter: _RipplePainter(
-                  tapPosition: tapPosition.value,
-                  progress: animation,
-                  rippleColor: rippleColor,
-                ),
+              child: Builder(
+                builder: (context) {
+                  final child = CustomPaint(
+                    size: Size(50.radius, 50.radius),
+                    painter: _RipplePainter(
+                      tapPosition: tapPosition.value,
+                      progress: animation,
+                      rippleColor: rippleColor,
+                    ),
+                  );
+                  if (shouldClip) {
+                    return ClipOval(
+                      child: CustomPaint(
+                        size: Size(50.radius, 50.radius),
+                        painter: _RipplePainter(
+                          tapPosition: tapPosition.value,
+                          progress: animation,
+                          rippleColor: rippleColor,
+                        ),
+                      ),
+                    );
+                  }
+                  return child;
+                },
               ),
             ),
         ],

@@ -18,6 +18,7 @@ class AppBlurredIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppRippleButton(
+      shouldClip: true,
       onTap: onTap,
       child: ClipOval(
         child: CircleAvatar(

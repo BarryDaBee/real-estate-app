@@ -6,6 +6,8 @@ import 'package:real_estate_app/gen/assets.gen.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/app_search_text_field.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/list_of_variants_button.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/search_pop_up_menu.dart';
+import 'package:real_estate_app/src/shared/constants/animation_constants.dart';
+import 'package:real_estate_app/src/shared/enums/location_pin_types.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 import 'package:real_estate_app/src/shared/utils/overlay_manager.dart';
@@ -22,6 +24,19 @@ class SearchPage extends HookWidget {
 
     final selectedPinType = useState(LocationPinTypes.withoutAnyLayer);
 
+    final controller = useAnimationController(
+      duration: AnimationConstants.normalDuration,
+    );
+
+    useEffect(() {
+      controller.forward();
+      return controller.dispose;
+    }, []);
+
+    final scale = useAnimation(
+      CurvedAnimation(parent: controller, curve: Curves.ease),
+    );
+
     Future<void> showMenu() async {
       final overlayState = Overlay.of(context);
       final overlayEntry = OverlayEntry(
@@ -32,10 +47,8 @@ class SearchPage extends HookWidget {
             onChanged: (LocationPinTypes value) {
               selectedPinType.value = value;
               Future.delayed(
-                Duration(milliseconds: 300),
-                () {
-                  overlayManager.removeAllOverlays();
-                },
+                const Duration(milliseconds: 300),
+                overlayManager.removeAllOverlays,
               );
             },
           );
@@ -62,15 +75,21 @@ class SearchPage extends HookWidget {
               children: [
                 Row(
                   children: [
-                    const Expanded(
-                      child: AppSearchTextField(),
+                    Expanded(
+                      child: Transform.scale(
+                        scale: scale,
+                        child: const AppSearchTextField(),
+                      ),
                     ),
                     SizedBox(width: 16.width),
-                    CircleAvatar(
-                      radius: 23.radius,
-                      backgroundColor: AppColors.primary.white,
-                      child: AppAssets.images.svg.filter.svg(
-                        width: 16.radius,
+                    Transform.scale(
+                      scale: scale,
+                      child: CircleAvatar(
+                        radius: 23.radius,
+                        backgroundColor: AppColors.primary.white,
+                        child: AppAssets.images.svg.filter.svg(
+                          width: 16.radius,
+                        ),
                       ),
                     ),
                   ],
@@ -80,12 +99,15 @@ class SearchPage extends HookWidget {
                   link: layerLink,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: AppBlurredIconButton(
-                      onTap: showMenu,
-                      icon: Icon(
-                        CupertinoIcons.square_stack_3d_up,
-                        color: Colors.white,
-                        size: 16.radius,
+                    child: Transform.scale(
+                      scale: scale,
+                      child: AppBlurredIconButton(
+                        onTap: showMenu,
+                        icon: Icon(
+                          CupertinoIcons.square_stack_3d_up,
+                          color: Colors.white,
+                          size: 16.radius,
+                        ),
                       ),
                     ),
                   ),
@@ -93,14 +115,18 @@ class SearchPage extends HookWidget {
                 SizedBox(height: 4.height),
                 Row(
                   children: [
-                    AppBlurredIconButton(
-                      icon: AppAssets.images.svg.locationArrow.svg(
-                        width: 16.radius,
+                    Transform.scale(
+                      scale: scale,
+                      child: AppBlurredIconButton(
+                        icon: AppAssets.images.svg.locationArrow.svg(
+                          width: 16.radius,
+                        ),
+                        onTap: () {},
                       ),
-                      onTap: () {},
                     ),
                     const Spacer(),
-                    const ListOfVariantsButton(),
+                    Transform.scale(
+                        scale: scale, child: const ListOfVariantsButton()),
                   ],
                 ),
                 SizedBox(height: 16.height),
@@ -111,41 +137,4 @@ class SearchPage extends HookWidget {
       ),
     );
   }
-}
-
-enum LocationPinTypes {
-  cosyAreas('Cosy areas'),
-  price('Price'),
-  infrastructure('Infrastructure'),
-  withoutAnyLayer('Without any layer');
-
-  final String label;
-  const LocationPinTypes(this.label);
-
-  Widget get icon => switch (this) {
-        (LocationPinTypes.cosyAreas) => Icon(
-            CupertinoIcons.checkmark_shield,
-            size: 14.radius,
-          ),
-        LocationPinTypes.price => AppAssets.images.svg.wallet.svg(
-            width: 14.radius,
-            colorFilter: ColorFilter.mode(
-              AppColors.gray.gray2A,
-              BlendMode.srcIn,
-            ),
-          ),
-        LocationPinTypes.infrastructure =>
-          AppAssets.images.svg.infrastructure.svg(
-            width: 14.radius,
-            colorFilter: ColorFilter.mode(
-              AppColors.gray.gray2A,
-              BlendMode.srcIn,
-            ),
-          ),
-        LocationPinTypes.withoutAnyLayer => Icon(
-            CupertinoIcons.square_stack_3d_up,
-            color: AppColors.gray.gray2A,
-            size: 14.radius,
-          ),
-      };
 }
