@@ -8,8 +8,11 @@ import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 
 class AppAnimatedCaption extends HookWidget {
   const AppAnimatedCaption({
+    required this.delay,
     super.key,
   });
+
+  final Duration delay;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class AppAnimatedCaption extends HookWidget {
     useEffect(
       () {
         Future.delayed(
-          AnimationConstants.shortDuration,
+          delay,
           controller.forward,
         );
         return null;
@@ -39,7 +42,7 @@ class AppAnimatedCaption extends HookWidget {
           curve: const Interval(
             0,
             1,
-            curve: Curves.decelerate,
+            curve: Curves.ease,
           ),
         ),
       ),

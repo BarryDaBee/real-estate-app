@@ -15,14 +15,12 @@ class AppAnimatedUserAvatar extends HookWidget {
       duration: AnimationConstants.normalDuration,
     )..forward();
 
-    // Listen to changes on the controller object and rebuild UI
     final curvedAnimation = useAnimation(
-      CurvedAnimation(parent: controller, curve: Curves.decelerate),
+      CurvedAnimation(parent: controller, curve: Curves.ease),
     );
 
     return Transform.scale(
       scale: curvedAnimation,
-      // Start animation from bottom left of the avatar
       origin: Offset(0, 32.radius),
       child: CircleAvatar(
         radius: 16.radius,

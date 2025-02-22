@@ -7,22 +7,24 @@ import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 
 class AppAnimatedGreeting extends HookWidget {
   const AppAnimatedGreeting({
+    required this.delay,
     super.key,
   });
 
+  final Duration delay;
   @override
   Widget build(BuildContext context) {
     final controller =
         useAnimationController(duration: AnimationConstants.normalDuration);
 
     final curvedAnimationValue = useAnimation(
-      CurvedAnimation(parent: controller, curve: Curves.decelerate),
+      CurvedAnimation(parent: controller, curve: Curves.ease),
     );
 
     useEffect(
       () {
         Future.delayed(
-          const Duration(milliseconds: 1000),
+          delay,
           controller.forward,
         );
         return null;

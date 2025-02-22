@@ -33,7 +33,7 @@ class _LocationChipState extends State<LocationChip>
       curve: const Interval(
         0,
         1,
-        curve: Curves.decelerate,
+        curve: Curves.ease,
       ),
     ),
   );
@@ -47,7 +47,7 @@ class _LocationChipState extends State<LocationChip>
       curve: const Interval(
         0.8,
         1,
-        curve: Curves.decelerate,
+        curve: Curves.ease,
       ),
     ),
   );

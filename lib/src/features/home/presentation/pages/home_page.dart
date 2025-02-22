@@ -8,6 +8,7 @@ import 'package:real_estate_app/src/features/home/presentation/widgets/buy_offer
 import 'package:real_estate_app/src/features/home/presentation/widgets/location_chip.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/property_card.dart';
 import 'package:real_estate_app/src/features/home/presentation/widgets/rent_offers.dart';
+import 'package:real_estate_app/src/shared/constants/animation_constants.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 
 @RoutePage()
@@ -45,14 +46,23 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 36.height),
-                const AppAnimatedGreeting(),
+                const AppAnimatedGreeting(
+                  delay: AnimationConstants.normalDuration,
+                ),
                 SizedBox(height: 4.height),
-                const AppAnimatedCaption(),
+                const AppAnimatedCaption(
+                  delay: AnimationConstants.normalDuration,
+                ),
                 const Row(
                   children: [
-                    BuyOffers(),
+                    BuyOffers(
+                      delay: AnimationConstants.longDuration,
+                    ),
                     Spacer(),
-                    RentOffers(),
+                    RentOffers(
+                      delay: AnimationConstants.longDuration,
+                      count: 2212,
+                    ),
                   ],
                 ),
               ],
