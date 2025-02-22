@@ -16,7 +16,6 @@ class AppAnimatedCaption extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    // timeDilation = 4;
     final controller = useAnimationController(
       duration: AnimationConstants.normalDuration,
     );

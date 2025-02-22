@@ -17,7 +17,7 @@ class ListOfVariantsButton extends StatelessWidget {
     return ClipRRect(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 16.radius,
+          horizontal: 12.radius,
           vertical: 10.radius,
         ),
         decoration: ShapeDecoration(

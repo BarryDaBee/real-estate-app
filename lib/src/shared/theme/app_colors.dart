@@ -46,6 +46,7 @@ class _Primary {
   final orange = const Color(0xFFFAA00E);
   final brown = const Color(0xFF998F80);
   final white = const Color(0xFFFFFFFF);
+  final whiteFC = const Color(0xFFFCF8F1);
   final black = const Color(0xFF0B0802);
   final lightBrown = const Color(0xFFFEFAF3);
 }

@@ -8,11 +8,13 @@ class AppRippleButton extends HookWidget {
   const AppRippleButton({
     required this.child,
     required this.onTap,
+    this.rippleColor,
     super.key,
   });
 
   final Widget child;
   final VoidCallback onTap;
+  final Color? rippleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class AppRippleButton extends HookWidget {
 
     return GestureDetector(
       onTapUp: startRipple,
+      behavior: HitTestBehavior.opaque,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -49,7 +52,11 @@ class AppRippleButton extends HookWidget {
           if (tapPosition.value != null)
             Positioned.fill(
               child: CustomPaint(
-                painter: _RipplePainter(tapPosition.value, animation),
+                painter: _RipplePainter(
+                  tapPosition: tapPosition.value,
+                  progress: animation,
+                  rippleColor: rippleColor,
+                ),
               ),
             ),
         ],
@@ -59,10 +66,15 @@ class AppRippleButton extends HookWidget {
 }
 
 class _RipplePainter extends CustomPainter {
-  _RipplePainter(this.tapPosition, this.progress);
+  _RipplePainter({
+    required this.tapPosition,
+    required this.progress,
+    this.rippleColor,
+  });
 
   final Offset? tapPosition;
   final double progress;
+  final Color? rippleColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -73,12 +85,14 @@ class _RipplePainter extends CustomPainter {
     final outerRadius = progress * (maxRadius + 5);
 
     final innerPaint = Paint()
-      ..color = AppColors.primary.white.withValues(alpha: min(0.7, progress))
+      ..color = (rippleColor ?? AppColors.primary.white)
+          .withValues(alpha: min(0.7, progress))
       ..strokeWidth = innerRadius / 1.5
       ..style = PaintingStyle.stroke;
 
     final outerPaint = Paint()
-      ..color = AppColors.primary.white.withValues(alpha: 1 - progress)
+      ..color = (rippleColor ?? AppColors.primary.white)
+          .withValues(alpha: 1 - progress)
       ..strokeWidth = 4 * progress
       ..style = PaintingStyle.stroke;
 

@@ -15,6 +15,14 @@ class OverlayManager {
     _updatePositions();
   }
 
+  void removeAllOverlays() {
+    for (final entry in _entries) {
+      entry.remove();
+    }
+    _entries.clear();
+    // _updatePositions();
+  }
+
   List<OverlayEntry> get allEntries => List.unmodifiable(_entries);
 
   void _updatePositions() {
