@@ -67,7 +67,7 @@ class AppAnimatedCaption extends HookWidget {
     return Transform.translate(
       offset: Offset(0, 50.height * (1 - controller.value)),
       child: SizedBox(
-        height: 80.height,
+        height: 85.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -33,7 +33,7 @@ class SearchPopUpMenu extends HookWidget {
     );
 
     return Positioned(
-      width: 130.radius,
+      width: 135.radius,
       child: CompositedTransformFollower(
         link: layerLink,
         offset: Offset(0, -110.radius),

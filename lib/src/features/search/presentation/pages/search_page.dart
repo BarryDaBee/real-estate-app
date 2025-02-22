@@ -1,10 +1,10 @@
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/app_search_text_field.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/list_of_variants_button.dart';
+import 'package:real_estate_app/src/features/search/presentation/widgets/search_chip.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/search_pop_up_menu.dart';
 import 'package:real_estate_app/src/shared/constants/animation_constants.dart';
 import 'package:real_estate_app/src/shared/enums/location_pin_types.dart';
@@ -27,6 +27,8 @@ class SearchPage extends HookWidget {
     final controller = useAnimationController(
       duration: AnimationConstants.normalDuration,
     );
+
+    final showSearchIcon = useState(false);
 
     useEffect(
       () {
@@ -71,70 +73,123 @@ class SearchPage extends HookWidget {
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.width),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Transform.scale(
-                        scale: scale,
-                        child: const AppSearchTextField(),
-                      ),
-                    ),
-                    SizedBox(width: 16.width),
-                    Transform.scale(
-                      scale: scale,
-                      child: CircleAvatar(
-                        radius: 23.radius,
-                        backgroundColor: AppColors.primary.white,
-                        child: AppAssets.images.svg.filter.svg(
-                          width: 16.radius,
-                        ),
-                      ),
-                    ),
-                  ],
+          child: Stack(
+            children: [
+              Positioned(
+                left: 90.radius,
+                top: 150.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
                 ),
-                const Spacer(),
-                CompositedTransformTarget(
-                  link: layerLink,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Transform.scale(
-                      scale: scale,
-                      child: AppBlurredIconButton(
-                        onTap: showMenu,
-                        icon: Icon(
-                          CupertinoIcons.square_stack_3d_up,
-                          color: Colors.white,
-                          size: 16.radius,
-                        ),
-                      ),
-                    ),
-                  ),
+              ),
+              Positioned(
+                left: 80.radius,
+                top: 100.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
                 ),
-                SizedBox(height: 4.height),
-                Row(
+              ),
+              Positioned(
+                right: 24.radius,
+                top: 180.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
+                ),
+              ),
+              Positioned(
+                right: 24.radius,
+                top: 340.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
+                ),
+              ),
+              Positioned(
+                right: 64.radius,
+                top: 420.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
+                ),
+              ),
+              Positioned(
+                left: 64.radius,
+                top: 450.radius,
+                child: SearchChip(
+                  showIcon: showSearchIcon.value,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.width),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Transform.scale(
-                      scale: scale,
-                      child: AppBlurredIconButton(
-                        icon: AppAssets.images.svg.locationArrow.svg(
-                          width: 16.radius,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Transform.scale(
+                            scale: scale,
+                            child: const AppSearchTextField(),
+                          ),
                         ),
-                        onTap: () {},
-                      ),
+                        SizedBox(width: 16.width),
+                        Transform.scale(
+                          scale: scale,
+                          child: CircleAvatar(
+                            radius: 23.radius,
+                            backgroundColor: AppColors.primary.white,
+                            child: AppAssets.images.svg.filter.svg(
+                              width: 16.radius,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const Spacer(),
-                    Transform.scale(
-                        scale: scale, child: const ListOfVariantsButton()),
+                    CompositedTransformTarget(
+                      link: layerLink,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Transform.scale(
+                          scale: scale,
+                          child: AppBlurredIconButton(
+                            onTap: () {
+                              showMenu();
+                              showSearchIcon.value = !showSearchIcon.value;
+                            },
+                            icon: ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                AppColors.primary.white,
+                                BlendMode.srcIn,
+                              ),
+                              child: selectedPinType.value.icon,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 4.height),
+                    Row(
+                      children: [
+                        Transform.scale(
+                          scale: scale,
+                          child: AppBlurredIconButton(
+                            icon: AppAssets.images.svg.locationArrow.svg(
+                              width: 16.radius,
+                            ),
+                            onTap: () {},
+                          ),
+                        ),
+                        const Spacer(),
+                        Transform.scale(
+                          scale: scale,
+                          child: const ListOfVariantsButton(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.height),
                   ],
                 ),
-                SizedBox(height: 16.height),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
