@@ -10,6 +10,7 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      resizeToAvoidBottomInset: false,
       routes: [
         const SearchRoute(),
         EmptyRoute(message: 'Messaging'),
