@@ -24,7 +24,7 @@ class PropertyCard extends StatelessWidget {
         minHeight: 190.height,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(24),
         image: DecorationImage(
           image: backgroundImage,
           fit: BoxFit.cover,
@@ -63,7 +63,7 @@ class PropertyCard extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.chevron_right_rounded,
-                    size: 16.radius,
+                    size: 14.radius,
                     color: AppColors.primary.brown,
                   ),
                 ),
@@ -79,7 +79,7 @@ class PropertyCard extends StatelessWidget {
               address,
               style: context.textTheme.bodyMedium?.copyWith(
                 letterSpacing: 0,
-                fontWeight: FontWeight.w500,
+                // fontWeight: FontWeight.w500,
               ),
             ),
           ),
