@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:real_estate_app/gen/fonts.gen.dart';
@@ -10,7 +11,10 @@ import 'package:real_estate_app/src/shared/widgets/unfocus.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final appRouter = AppRouter();
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(RealEstateApp(routerConfig: appRouter.config()));
 }
 

@@ -55,18 +55,18 @@ class AppBottomNavigationBar extends HookWidget {
               AppBottomBarItem(
                 title: 'Search',
                 isActive: _isActive(0),
-                icon: AppAssets.images.svg.search.svg(width: 13.radius),
+                icon: AppAssets.images.svg.search.svg(width: 20.radius),
                 onTap: () => onTap(0),
               ),
               AppBottomBarItem(
                 title: 'Messaging',
-                icon: AppAssets.images.svg.message.svg(width: 13.radius),
+                icon: AppAssets.images.svg.message.svg(width: 20.radius),
                 isActive: _isActive(1),
                 onTap: () => onTap(1),
               ),
               AppBottomBarItem(
                 title: 'Home',
-                icon: AppAssets.images.svg.home.svg(width: 18.radius),
+                icon: AppAssets.images.svg.home.svg(width: 24.radius),
                 isActive: _isActive(2),
                 onTap: () => onTap(2),
               ),
@@ -75,13 +75,14 @@ class AppBottomNavigationBar extends HookWidget {
                 icon: Icon(
                   CupertinoIcons.heart_fill,
                   color: AppColors.primary.white,
+                  size: 20.radius,
                 ),
                 isActive: _isActive(3),
                 onTap: () => onTap(3),
               ),
               AppBottomBarItem(
                 title: 'Profile',
-                icon: AppAssets.images.svg.person.svg(width: 13.radius),
+                icon: AppAssets.images.svg.person.svg(width: 18.radius),
                 isActive: _isActive(4),
                 onTap: () => onTap(4),
               ),
