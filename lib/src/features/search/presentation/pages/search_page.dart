@@ -4,6 +4,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
+import 'package:real_estate_app/src/features/search/presentation/widgets/app_search_text_field.dart';
 import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';
@@ -29,29 +30,8 @@ class SearchPage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        fillColor: AppColors.primary.white,
-                        prefixIcon: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AppAssets.images.svg.searchOutlined.svg(
-                              width: 18.radius,
-                            ),
-                          ],
-                        ),
-                        hintText: 'Saint Petersburg',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                        ),
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100.radius),
-                        ),
-                      ),
-                    ),
+                  const Expanded(
+                    child: AppSearchTextField(),
                   ),
                   SizedBox(width: 16.width),
                   CircleAvatar(
