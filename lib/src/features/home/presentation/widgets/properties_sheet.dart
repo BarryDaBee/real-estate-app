@@ -58,9 +58,7 @@ class PropertiesSheet extends HookWidget {
                 textAlignment: Alignment.center,
                 backgroundImage: AppAssets.images.png.dummyProperty0.provider(),
                 address: 'Gladkova St., 25',
-                delay: const Duration(
-                  milliseconds: 5000,
-                ),
+                delay: delay,
               ),
               SizedBox(height: 8.radius),
               SizedBox(
@@ -70,9 +68,7 @@ class PropertiesSheet extends HookWidget {
                     Expanded(
                       child: PropertyCard(
                         address: 'Gubina St., 11',
-                        delay: const Duration(
-                          milliseconds: 5000,
-                        ),
+                        delay: delay + const Duration(milliseconds: 300),
                         backgroundImage:
                             AppAssets.images.png.dummyProperty2.provider(),
                       ),
@@ -84,9 +80,7 @@ class PropertiesSheet extends HookWidget {
                           Expanded(
                             child: PropertyCard(
                               address: 'Trefoleva St., 11',
-                              delay: const Duration(
-                                milliseconds: 5000,
-                              ),
+                              delay: delay + const Duration(milliseconds: 300),
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty1
                                   .provider(),
@@ -96,9 +90,7 @@ class PropertiesSheet extends HookWidget {
                           Expanded(
                             child: PropertyCard(
                               address: 'Sedova St., 22',
-                              delay: const Duration(
-                                milliseconds: 5000,
-                              ),
+                              delay: delay + const Duration(milliseconds: 300),
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty2
                                   .provider(),
@@ -121,9 +113,7 @@ class PropertiesSheet extends HookWidget {
                           Expanded(
                             child: PropertyCard(
                               address: 'Moniepoint St., 1',
-                              delay: const Duration(
-                                milliseconds: 5000,
-                              ),
+                              delay: delay + const Duration(milliseconds: 400),
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty0
                                   .provider(),
@@ -133,9 +123,7 @@ class PropertiesSheet extends HookWidget {
                           Expanded(
                             child: PropertyCard(
                               address: 'HireMe St., 2',
-                              delay: const Duration(
-                                milliseconds: 5000,
-                              ),
+                              delay: delay + const Duration(milliseconds: 400),
                               backgroundImage: AppAssets
                                   .images.png.dummyProperty2
                                   .provider(),
@@ -148,9 +136,7 @@ class PropertiesSheet extends HookWidget {
                     Expanded(
                       child: PropertyCard(
                         address: 'Remote St., 3',
-                        delay: const Duration(
-                          milliseconds: 5000,
-                        ),
+                        delay: delay + const Duration(milliseconds: 400),
                         backgroundImage:
                             AppAssets.images.png.dummyProperty1.provider(),
                       ),
