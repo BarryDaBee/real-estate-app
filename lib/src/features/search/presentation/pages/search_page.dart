@@ -1,11 +1,9 @@
-import 'dart:ui';
-
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/gen/assets.gen.dart';
 import 'package:real_estate_app/src/features/search/presentation/widgets/app_search_text_field.dart';
-import 'package:real_estate_app/src/shared/extensions/app_theme_extension.dart';
+import 'package:real_estate_app/src/features/search/presentation/widgets/list_of_variants_button.dart';
 import 'package:real_estate_app/src/shared/extensions/responsive_sizer_extension.dart';
 import 'package:real_estate_app/src/shared/theme/app_colors.dart';
 import 'package:real_estate_app/src/shared/widgets/app_blurred_icon_button.dart';
@@ -63,39 +61,7 @@ class SearchPage extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  ClipRRect(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.radius,
-                        vertical: 10.radius,
-                      ),
-                      decoration: ShapeDecoration(
-                        shape: const StadiumBorder(),
-                        color: AppColors.primary.white.withValues(alpha: 0.3),
-                      ),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(
-                          sigmaX: 1,
-                          sigmaY: 1,
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              CupertinoIcons.text_justify,
-                              color: AppColors.primary.white,
-                            ),
-                            SizedBox(width: 8.width),
-                            Text(
-                              'List of variants',
-                              style: context.textTheme.bodyMedium?.copyWith(
-                                color: AppColors.primary.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  const ListOfVariantsButton(),
                 ],
               ),
               SizedBox(height: 16.height),
