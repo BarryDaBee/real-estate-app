@@ -12,7 +12,7 @@ make runner
 or
 
 ```
-dart run build_runner -d
+dart run build_runner build -d
 ```
 
 This will create all generated files
