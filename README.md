@@ -16,6 +16,15 @@ of this design
 - [APK Download link](https://drive.google.com/file/d/15ZoFETc6KpPqGB9g89ABsAOrg32EiSNn/view?usp=sharing)
 
 
+# Please do this before running the app:
+
+open terminal and run
+`make runner`
+or
+`dart run build_runner -d`
+
+This will create all generated files
+
 ## Folder Structure :open_file_folder:
 This application uses a feature driven folder structure to seperate related functionality into individual features
 
