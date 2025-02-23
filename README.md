@@ -5,9 +5,15 @@ Moniepoint UI interview task
 # Please do this before running the app:
 
 open terminal, then run
-`make runner`
+```
+make runner
+```
+
 or
-`dart run build_runner -d`
+
+```
+dart run build_runner -d
+```
 
 This will create all generated files
 
